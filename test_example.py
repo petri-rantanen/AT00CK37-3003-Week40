@@ -133,7 +133,7 @@ def test_page_navigation(driver):
     
     try:    # let's see if a cookie banner appears, and try to close it.
         cookie_button = WebDriverWait(driver, 5).until(
-            EC.element_to_be_clickable((By.ID, "ppms_cm_reject-all")) # there is no universally standard naming for the reject button, the id/class needs be checked from the page sources
+            EC.element_to_be_clickable((By.ID, "ppms_cm_reject-all")) # there is no universal, standard naming for the reject button, the id/class needs be checked from the page sources
         )
         cookie_button.click()
         print("Cookie banner accepted")
@@ -148,7 +148,6 @@ def test_page_navigation(driver):
     #button.click()
     
     link = driver.find_element(By.CSS_SELECTOR, 'a[data-drupal-link-system-path="node/5"]') # but in this case, let's try to navigate by finding a specific Drupal node.
-    print("link: ",link.get_attribute("href"))
     link.click()
     
     WebDriverWait(driver, 10).until(EC.url_contains("/news-and-stories")) # wait until page navigation has completed
